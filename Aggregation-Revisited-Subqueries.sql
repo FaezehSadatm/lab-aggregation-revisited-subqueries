@@ -9,6 +9,7 @@ select c.customer_id, concat(c.first_name, " ", c.last_name) as name, avg(p.amou
 join payment p on c.customer_id = p.customer_id
 group by c.customer_id;
 
+
 # Select the name and email address of all the customers who have rented the "Action" movies.
   # Write the query using multiple join statements.
 select concat(c.first_name, " ", c.last_name) as name, c.email from customer c
@@ -16,8 +17,8 @@ join rental r on c.customer_id = r.customer_id
 join inventory i on r.inventory_id = i.inventory_id
 join film_category fc on i.film_id = fc.film_id
 join category ca on fc.category_id = ca.category_id
-where ca.name = "Action"
-group by name, email;
+where ca.name = "Action";
+
 
  # Write the query using sub queries with multiple WHERE clause and IN condition.
 select concat(first_name, " ", last_name) as name, email from customer c
@@ -36,6 +37,7 @@ where c.customer_id in (
 			)
 		)
 	);
+ 
  
  # Verify if the above two queries produce the same results or not.
 -- I've received the same results.
